@@ -37,6 +37,7 @@ CREATE TABLE `Usuarios` (
   PRIMARY KEY (id_user)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
 CREATE TABLE `Personagens` (
   `id_personagem` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id_personagem),
