@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: 'Tormenta';
-    src: url('/cadastro_tormenta/fonts/Tormenta.ttf') format('truetype');
+    src: url('../cadastro_tormenta/fonts/Tormenta.ttf') format('truetype');
 }
 
 .lora-texto {
