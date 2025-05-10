@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Lora", serif;
+    color: #F2CAB0;
+}
+
+@font-face {
+    font-family: 'Tormenta';
+    src: url('/cadastro_tormenta/fonts/Tormenta.ttf') format('truetype');
+}
+
+.lora-texto {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+  }
+
+h2{
+    font-family: "Tormenta"; 
+    color: red;
+}
+
+p{
+    font-family: "Lora", serif;
+}
+
+.navbar {
+    background-color: #0D0D0D; 
+    margin: 0;
+     box-shadow: 0 0 20px rgba(246, 26, 26, 0.2);
+
+}
+
+hr{
+    background-color: #F61A1A;
+}
+
+.linhanav{
+    height: 3px;
+}
+
+
+html, body{
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+}
+
+.linknavbar{
+    font-family: "Tormenta";
+    color: #F61A1A;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.linknavbar:hover{
+    transform: scale(1.06);
+    transition: 100ms;
+
+    color: #F61A1A;
+}
+
+.atuallink{
+    text-decoration:underline;
+    
+}
+
