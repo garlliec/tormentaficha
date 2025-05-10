@@ -16,8 +16,11 @@ try {
 $email = $_POST['email_user'] ?? '';
 $senha = $_POST['senha_user'] ?? '';
 
-if (empty($email) || empty($senha)) {
-    echo "Por favor, preencha todos os campos.";
+if (!isset($email) || !isset($senha)) {
+    echo "<script>
+    window.alert('Por favor, preencha todos os campos.');
+    window.location.href='../login_tormenta/login_tormenta.html';
+    </script>";
     exit;
 }
 
@@ -32,15 +35,25 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($user) {
     // Verifica a senha
     if (password_verify($senha, $user['senha_hash'])) {
-        echo "Login realizado com sucesso! Bem-vindo, " . htmlspecialchars($user['username']);
-        // Aqui você pode iniciar uma sessão:
-        // session_start();
-        // $_SESSION['usuario_id'] = $user['id_usuario'];
-        // redirecionar para página protegida
+        // Faz um cookie que dura 24 horas, depois disso o usuario sera deslogado:
+        setcookie('id_user', $user['id_user'], time()+60*60*24);
+        echo "<script>
+        window.alert('Login realizado com sucesso! Bem-vindo, " . htmlspecialchars($user['username']) . "');
+        window.location.href='../aventureiros_tormenta';
+        </script>";
+        exit;
     } else {
-        echo "Senha incorreta.";
+        echo "<script>
+        window.alert('Senha incorreta.');
+        window.location.href='../login_tormenta/login_tormenta.html';
+        </script>";
+        exit;
     }
 } else {
-    echo "Usuário não encontrado.";
+    echo "<script>
+    window.alert('Usuário não encontrado.');
+    window.location.href='../login_tormenta/login_tormenta.html';
+    </script>";
+    exit;
 }
 ?>
