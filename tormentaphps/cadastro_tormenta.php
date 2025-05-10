@@ -65,6 +65,6 @@ if (mysqli_error($conn))
 
 echo "<script>
     window.aleru(Cadastro realizado com sucesso!');
-    </script>";U
+    </script>";
 header('Location: ../login_tormenta/login_tormenta.html');
 ?>

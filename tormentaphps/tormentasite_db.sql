@@ -37,32 +37,25 @@ CREATE TABLE `Usuarios` (
   PRIMARY KEY (id_user)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `Personagem` (
-  `id_user` int NOT NULL,
-  FOREIGN KEY (id_user) REFERENCES Usuarios(id_user)
-
+CREATE TABLE `Personagens` (
   `id_personagem` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (id_personagem),
+
+  `id_user` int NOT NULL,
+  FOREIGN KEY (id_user) REFERENCES Usuarios(id_user),
+
+
   `nome` varchar(255) NOT NULL,
   `sobrenome` varchar(255) NOT NULL,
   `classe` varchar(255) NOT NULL,
-  `foto` varchar(128) NOT NULL,
-  PRIMARY KEY (id_personagem)
+  -- abilidades do personagem
+  `foto` varchar(128) NOT NULL, -- arquivo de imagem no servidor
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
---
--- Indexes for dumped tables
---
+-- tabela abilidades
 
---
--- Indexes for table `usuarios`
---
--- ALTER TABLE `usuarios`
-  -- ADD PRIMARY KEY (`id_user`);
-
---
--- AUTO_INCREMENT for dumped tables
---
 
 --
 -- AUTO_INCREMENT for table `usuarios`
