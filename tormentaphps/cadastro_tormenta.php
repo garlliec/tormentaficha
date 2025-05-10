@@ -61,10 +61,9 @@ if (mysqli_error($conn))
     window.location.href='../cadastro_tormenta/cadastro_tormenta.html';
     </script>");
 
-// aaaa
 
 echo "<script>
-    window.aleru(Cadastro realizado com sucesso!');
+    window.alert(Cadastro realizado com sucesso!');
     </script>";
 header('Location: ../login_tormenta/login_tormenta.html');
 ?>
