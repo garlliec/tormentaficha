@@ -1,3 +1,9 @@
 # TormentaFicha
 
-repositorio pro tormenta TormentaFicha
+Repositorio pro TormentaFicha
+
+## Tem agora:
+
+- Cadastro
+- Login
+-
