@@ -22,7 +22,7 @@ if ((!isset($_POST['username'])) || (!isset($_POST['email_user'])) || (!isset($_
 $username = $_POST['username'];
 
 // Verifica se o usuario já está cadastrado
-$sql = "SELECT username FROM Usuarios WHERE username = \"" . $username . "\";"
+$sql = "SELECT username FROM usuarios WHERE username = \"" . $username . "\";";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -37,7 +37,7 @@ if (mysqli_num_rows($result) > 0) {
 $email = $_POST['email_user'];
 
 // Verifica se o e-mail já está cadastrado
-$sql = "SELECT email_user FROM Usuarios WHERE email_user = \"" . $email . "\";";
+$sql = "SELECT email_user FROM usuarios WHERE email_user = \"" . $email . "\";";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -51,7 +51,7 @@ if (mysqli_num_rows($result) > 0) {
 $senha_hash = password_hash($_POST['senha_user'], PASSWORD_DEFAULT);
 
 // Insere no banco
-$sql = "INSERT INTO Usuarios (username, email_user, senha_hash) VALUES (\"" . $username . "\", \"" . $email . "\", \"" . $senha_hash . "\")";
+$sql = "INSERT INTO usuarios (username, email_user, senha_hash) VALUES (\"" . $username . "\", \"" . $email . "\", \"" . $senha_hash . "\")";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_error($conn))
@@ -63,7 +63,9 @@ if (mysqli_error($conn))
 
 
 echo "<script>
+<<<<<<< HEAD
     window.alert(Cadastro realizado com sucesso!');
     </script>";
+=======
 header('Location: ../login_tormenta/login_tormenta.html');
 ?>

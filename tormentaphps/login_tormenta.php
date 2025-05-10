@@ -22,7 +22,7 @@ $senha = $_POST['senha_user'];
 
 // Pega os dados do formulário
 $email_user = $_POST['email_user'];
-$sql = "SELECT email_user FROM Usuarios WHERE email_user = \"" . $email_user . "\";";
+$sql = "SELECT email_user FROM usuarios WHERE email_user = \"" . $email_user . "\";";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 0) {
@@ -35,7 +35,7 @@ if (mysqli_num_rows($result) == 0) {
 
 
 // Insere no banco
-$sql = "SELECT * FROM Usuarios WHERE email_user = \"" . $email_user . "\";";
+$sql = "SELECT * FROM usuarios WHERE email_user = \"" . $email_user . "\";";
 $result = mysqli_query($conn, $sql);
 $deference = mysqli_fetch_array($result);
 
