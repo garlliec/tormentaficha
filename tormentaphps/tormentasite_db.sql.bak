@@ -27,8 +27,6 @@ SET time_zone = "-03:00";
 -- Table structure for table `usuarios`
 --
 
-CREATE DATABASE `tormentasite_db`;
-USE `tormentasite_db`;
 CREATE TABLE `usuarios` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,

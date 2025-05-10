@@ -1,0 +1,34 @@
+<?php
+// index.php (with basic styling and recursion)
+
+function listDirectory($dir = '.') {
+    $items = scandir($dir);
+    $items = array_diff($items, ['.', '..']);
+
+    echo "<ul>";
+    foreach ($items as $item) {
+        $path = $dir . '/' . $item;
+        echo "<li><a href=\"$path\">$item</a>";
+        if (is_dir($path)) {
+            listDirectory($path); // Recursive call
+        }
+        echo "</li>";
+    }
+    echo "</ul>";
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Directory Listing</title>
+    <style>
+        ul { list-style-type: none; padding-left: 1em; }
+        li::before { content: "📁 "; }
+        a { text-decoration: none; color: #0077cc; }
+    </style>
+</head>
+<body>
+    <h1>📁 Directory Listing</h1>
+    <?php listDirectory(); ?>
+</body>
+</html>

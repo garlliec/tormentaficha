@@ -169,7 +169,7 @@ button.reset:hover {
 
 
 form > input {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 a {

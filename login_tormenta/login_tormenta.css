@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     font-family: "Lora", serif;
@@ -15,14 +15,22 @@
     font-optical-sizing: auto;
     font-weight: 400px;
     font-style: normal;
-  }
-
-  h1{
-    font-family: "Tormenta"; 
-    color: red;
 }
 
-p{
+h1 {
+    font-family: "Tormenta";
+    font-size: 70px;
+    color:#F61A1A;
+}
+
+/*h2 {
+    font-family: 'Tormenta';
+    font-size: 70px;
+    color:#F61A1A;
+}*/
+
+
+p {
     font-family: "Lora", serif;
 }
 
@@ -48,37 +56,38 @@ html, body{
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-
+/*     overflow: hidden; */
 }
 
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     width: 100%;
-   flex: 1;
+    flex: 1;
 }
 
-form{
-  
+form {
     display: flex; 
     flex-direction: column;
     font-family: "Coiny", serif;
     font-size: 130%;
     
-
     flex-grow: 1; /* faz o form ocupar o espaço disponível */
-
 }
 
 
-label{
+label {
     font-family: 'Tormenta';
-    font-size: 23px;
+    font-size: 24px;
 }
-#container {
+
+.logo {
+    padding: 4% 0% 2% 10%;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* joga o botão para baixo */
@@ -87,14 +96,16 @@ label{
     padding-left: 3%;
     padding-bottom: 3%;
     padding-top: 1%;
+/*     padding: 100px 100px 100px 10px; */
     width: 50%;
     height: auto; /* altura fixa proporcional à tela */
     background-color: #1e1e1e;
     border: 1px solid #F61A1A; /* arrumei o border */
     box-sizing: border-box;
-     box-shadow: 0 0 20px rgba(246, 26, 26, 0.15);
+    box-shadow: 0 0 20px rgba(246, 26, 26, 0.2);
 }
-input{
+
+input {
     height: 50px;
     border-radius: 5px;
     border: 2px solid #950914;
@@ -103,23 +114,23 @@ input{
     color: #F61A1A;
     font-size: 18px;
     padding: 10px;
-    
-    
-  }
+}
+
 input:hover{
     transform: scale(1.01);
     transition: 200ms;
     box-shadow: 0 0 20px rgba(246, 26, 26, 0.2);
 }
+
 input:active{
     border: 2px solid #950914;
 }
+
 ::placeholder{
-    
     color: #950914;
 }
 
-button {
+button.submit {
     align-self: stretch; /* botão pega toda a largura */
     padding: 10px;
     background-color: #F61A1A;
@@ -129,39 +140,54 @@ button {
     font-family: "Tormenta";
     font-size: 100%;
 }
-button:active {
+button.submit:active {
     transition: 200ms;
     transform: scale(0.70);
 }
 
-button:hover {
+button.submit:hover {
     transform: scale(1.02);
     transition: 270ms;
     box-shadow: 0 0 20px rgba(246, 26, 26, 0.6);
 }
-h2{
-    font-family: 'Tormenta';
-    font-size: 70px;
-    color:#F61A1A;
 
 
+button.reset {
+    align-self: stretch; /* botão pega toda a largura */
+    padding: 5px;
+    background-color: #097593;
+    margin-top: 15px;
+    border: 0;
+    border-radius: 10px;
+    font-family: "Tormenta";
+    font-size: 90%;
+    width: 100px;
 }
 
+button.reset:active {
+    transition: 200ms;
+    transform: scale(0.70);
+}
 
+button.reset:hover {
+    transform: scale(1.05);
+    transition: 270ms;
+    box-shadow: 0 0 20px rgba(246, 26, 26, 0.6);
+}
 
 form > input {
     margin-bottom: 15px;
 }
 
-a{
+a {
     text-decoration: none;
     color: #950914;
     font-family: "Lora";
     margin-top: 20px;
     font-size: 18px;
 }
-a:hover{
-   
+
+a:hover {
     transform: scale(1.02);
     transition: 260ms;
     text-decoration: none;

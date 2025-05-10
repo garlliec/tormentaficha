@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: 'Tormenta';
-    src: url('../cadastro_tormenta/fonts/Tormenta.ttf') format('truetype');
+    src: url('../login_tormenta/fonts/Tormenta.ttf') format('truetype');
 }
 
 .lora-texto {
@@ -19,30 +19,36 @@
 
 h1 {
     font-family: "Tormenta";
-    color:#F61A1A;
     font-size: 70px;
+    color:#F61A1A;
 }
+
+/*h2 {
+    font-family: 'Tormenta';
+    font-size: 70px;
+    color:#F61A1A;
+}*/
+
 
 p {
     font-family: "Lora", serif;
 }
 
 .navbar {
-    background-color: #0D0D0D;
+    background-color: #0D0D0D; 
     margin: 0;
-    box-shadow: 0 0 20px rgba(246, 26, 26, 0.2);
 }
 
-hr {
+hr{
     background-color: #F61A1A;
 }
 
-.linhanav {
+.linhanav{
     height: 3px;
 }
 
 
-html, body {
+html, body{
     display: flex;
     flex-direction: column;
     background-color: #121212;
@@ -57,18 +63,20 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    
     width: 100%;
-    flex: 1;
+   flex: 1;
 }
 
 form {
     display: flex; 
     flex-direction: column;
-   
+    font-family: "Coiny", serif;
     font-size: 130%;
-
+    
     flex-grow: 1; /* faz o form ocupar o espaço disponível */
 }
+
 
 label {
     font-family: 'Tormenta';
@@ -101,7 +109,7 @@ input {
     height: 50px;
     border-radius: 5px;
     border: 2px solid #950914;
-
+    
     background: #121212;
     color: #F61A1A;
     font-size: 18px;
@@ -167,7 +175,6 @@ button.reset:hover {
     box-shadow: 0 0 20px rgba(246, 26, 26, 0.6);
 }
 
-
 form > input {
     margin-bottom: 15px;
 }
@@ -175,11 +182,11 @@ form > input {
 a {
     text-decoration: none;
     color: #950914;
-    
     font-family: "Lora";
     margin-top: 20px;
     font-size: 18px;
 }
+
 a:hover {
     transform: scale(1.02);
     transition: 260ms;

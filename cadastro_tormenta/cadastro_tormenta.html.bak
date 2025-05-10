@@ -30,13 +30,13 @@
     <hr class="linhanav mt-0"> 
     <main>
         <div class="container">
-            <h1> Cadastro </h1>
+            <h1> a </h1>
             <form id="cadastroform"  method="POST" action="../tormentaphps/cadastro_tormenta.php"> 
-                <label for="username">Apelido</label>
+                <label for="username">Email</label>
                 <input required type="text" name="username" id="username" placeholder="Digite seu apelido.">
 
-                <label for="email_user">Email</label>
-                <input required type="email" name="email_user" id="email_user" placeholder="Digite seu email">
+<!--                 <label for="email_user">Email</label> -->
+<!--                 <input required type="email" name="email_user" id="email_user" placeholder="Digite seu email"> -->
 
                 <!-- Placeholder é pra colocar letrinha dentro dos input-->
                 <label for="senha_user" id="labelsenha">Senha</label>
@@ -46,7 +46,7 @@
                 <button type="submit" class="submit"> Cadastrar-se </button>
                 <button type="reset" class="reset"> Limpar </button>
 
-                <a href="../login_tormenta/login_tormenta.html" id="irparalogin"> Já é um aventureiro? Vá para o login.</a>
+<!--                 <a href="../login_tormenta/login_tormenta.html" id="irparalogin"> Já é um aventureiro? Vá para o login.</a> -->
             </form>
             </div>
     </main>
