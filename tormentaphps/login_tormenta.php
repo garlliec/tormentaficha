@@ -1,64 +1,66 @@
 <?php
-// Configurações do banco
-// $host = 'localhost';
-// $dbname = 'tormentasite_db';
-// $user = 'root';
-// $pass = ''; // senha do MySQL, deixe vazia se no XAMPP você não configurou
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
 include("conexao_db.php");
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erro na conexão: " . $e->getMessage());
+$conn = conexao();
+
+// Validações básicas
+if (!isset($_POST['email_user']) || !isset($_POST['senha_user'])) {
+    echo "<script>
+    window.alert('Por favor preencha todos os campos');
+    window.location.href='../cadastro_tormenta/cadastro_tormenta.html';
+    </script>";
+    exit;
 }
+
+echo "a";
+$senha = $_POST['senha_user'];
 
 // Pega os dados do formulário
-$email = $_POST['email_user'] ?? '';
-$senha = $_POST['senha_user'] ?? '';
+$email_user = $_POST['email_user'];
+$sql = "SELECT email_user FROM usuarios WHERE email_user = \"" . $email_user . "\";";
+$result = mysqli_query($conn, $sql);
 
-if (!isset($email) || !isset($senha)) {
+if (mysqli_num_rows($result) == 0) {
+    die("<script>
+    window.alert('Usuário não encontrado. Faça Cadastro.');
+    window.location.href='../login_tormenta/login_tormenta.html';
+    </script>");
+}
+
+
+
+// Insere no banco
+$sql = "SELECT * FROM usuarios WHERE email_user = \"" . $email_user . "\";";
+$result = mysqli_query($conn, $sql);
+$deference = mysqli_fetch_array($result);
+
+
+// $a = var_dump(password_verify($senha, $deference['senha_hash']));
+
+    // window.location.href='../login_tormenta/login_tormenta.html';
+if (!password_verify($senha, $deference['senha_hash'])) {
     echo "<script>
-    window.alert('Por favor, preencha todos os campos.');
+    window.alert('Senha incorreta.');
     window.location.href='../login_tormenta/login_tormenta.html';
     </script>";
     exit;
 }
 
-// Busca usuário no banco
-$sql = "SELECT * FROM usuarios WHERE email_user = :email";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':email', $email);
-$stmt->execute();
+$bundle = base64_encode($user['username'] . "+" . $user['email_user']);
+setcookie('bundle', $bundle, time() + 60 * 60 * 24 * 5); // 5 dias
 
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if ($user) {
-    // Verifica a senha
-    if (password_verify($senha, $user['senha_hash'])) {
-        // Faz um cookie que dura 24 horas, depois disso o usuario sera deslogado:
-        setcookie('id_user', $user['id_user'], time()+60*60*24);
-        echo "<script>
-        window.alert('Login realizado com sucesso! Bem-vindo, " . htmlspecialchars($user['username']) . "');
-        window.location.href='../aventureiros_tormenta/aventureiros_tormenta.html';
-        </script>";
-        exit;
-    } else {
-        echo "<script>
-        window.alert('Senha incorreta.');
-        window.location.href='../login_tormenta/login_tormenta.html';
-        </script>";
-        exit;
-    }
-} else {
-    echo "<script>
-    window.alert('Usuário não encontrado.');
-    window.location.href='../login_tormenta/login_tormenta.html';
+echo "<script>
+    window.alert('Login realizado com sucesso! Bem-vindo, " . htmlspecialchars($deference['username']) . " :D');
+    window.location.href='../aventureiros_tormenta/aventureiros_tormenta.html';
     </script>";
-    exit;
-}
+exit;
+
+
+header('Location: ../login_tormenta/login_tormenta.html');
+
 ?>

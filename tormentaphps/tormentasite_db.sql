@@ -33,7 +33,7 @@ CREATE TABLE `usuarios` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `email_user` varchar(255) NOT NULL,
-  `senha_hash` varchar(255) NOT NULL,
+  `senha_hash` varchar(64) NOT NULL,
   PRIMARY KEY (id_user)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
