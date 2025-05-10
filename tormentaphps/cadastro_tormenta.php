@@ -17,9 +17,13 @@ $username = $_POST['username'] ?? '';
 $email = $_POST['email_user'] ?? '';
 $senha = $_POST['senha_user'] ?? '';
 
+
 // Validações básicas
-if (empty($username) || empty($email) || empty($senha)) {
-    echo "Por favor, preencha todos os campos.";
+if (!isset($username) || !isset($email) || !isset($senha)) {
+    echo "<script>
+    window.alert('Por favor preencha todos os campos');
+    window.location.href='../cadastro_tormenta/cadastro_tormenta.html';
+    </script>";
     exit;
 }
 
@@ -30,7 +34,10 @@ $stmt->bindParam(':email', $email);
 $stmt->execute();
 
 if ($stmt->rowCount() > 0) {
-    echo "Este e-mail já está cadastrado. Faça login.";
+    echo "<script>
+    window.alert('Este e-mail já está cadastrado. Faça login.');
+    window.location.href='../login_tormenta/login_tormenta.html';
+    </script>";
     exit;
 }
 
@@ -45,11 +52,17 @@ $stmt->bindParam(':email', $email);
 $stmt->bindParam(':senha_hash', $senha_hash);
 
 if ($stmt->execute()) {
-    echo "Cadastro realizado com sucesso!";
-    // Aqui você pode redirecionar para o login
-    // header('Location: login_tormenta.html');
-    // exit;
+    //  Você redireciona para o login
+    echo "<script>
+    window.alert('Cadastro realizado com sucesso!');
+    window.location.href='../login_tormenta/login_tormenta.html';
+    </script>";
+    exit;
 } else {
-    echo "Erro ao cadastrar. Tente novamente.";
+    echo "<script>
+    window.alert('Erro ao cadastrar. Tente novamente.');
+    window.location.href='../cadastro_tormenta/cadastro_tormenta.html';
+    </script>";
+    exit;
 }
 ?>
