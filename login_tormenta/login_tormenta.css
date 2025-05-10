@@ -39,13 +39,16 @@ p {
     margin: 0;
 }
 
-hr{
+
+hr {
     background-color: #F61A1A;
+    padding: 3px 0 0px 0;
 }
 
-.linhanav{
-    height: 3px;
+.linhanav {
+/*     height: 3px; */
 }
+
 
 
 html, body{

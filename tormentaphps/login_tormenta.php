@@ -1,9 +1,14 @@
 <?php
 // Configurações do banco
-$host = 'localhost';
-$dbname = 'tormentasite_db';
-$user = 'root';
-$pass = ''; // senha do MySQL, deixe vazia se no XAMPP você não configurou
+// $host = 'localhost';
+// $dbname = 'tormentasite_db';
+// $user = 'root';
+// $pass = ''; // senha do MySQL, deixe vazia se no XAMPP você não configurou
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+include("conexao_db.php");
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);

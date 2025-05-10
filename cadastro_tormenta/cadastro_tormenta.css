@@ -35,10 +35,11 @@ p {
 
 hr {
     background-color: #F61A1A;
+    padding: 3px 0 0px 0;
 }
 
 .linhanav {
-    height: 3px;
+/*     height: 3px; */
 }
 
 
@@ -76,7 +77,7 @@ label {
 }
 
 .logo {
-    padding: 6vh 0vw 2vh 10vw;
+    margin: 6vh 0vw 2vh 10vw;
 }
 
 .container {

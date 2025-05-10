@@ -1,25 +1,15 @@
 <?php
-// Configurações do banco
-$host = 'localhost';
-$dbname = 'tormentasite_db';
-$user = 'root';
-$pass = ''; // senha do MySQL, deixe vazia se no XAMPP você não configurou
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erro na conexão: " . $e->getMessage());
-}
 
-// Pega os dados do formulário
-$username = $_POST['username'] ?? '';
-$email = $_POST['email_user'] ?? '';
-$senha = $_POST['senha_user'] ?? '';
+include("conexao_db.php");
 
+$conn = conexao();
 
 // Validações básicas
-if (!isset($username) || !isset($email) || !isset($senha)) {
+if ((!isset($_POST['username'])) || (!isset($_POST['email_user'])) || (!isset($_POST['senha_user']))) {
     echo "<script>
     window.alert('Por favor preencha todos os campos');
     window.location.href='../cadastro_tormenta/cadastro_tormenta.html';
@@ -27,42 +17,55 @@ if (!isset($username) || !isset($email) || !isset($senha)) {
     exit;
 }
 
-// Verifica se o e-mail já está cadastrado
-$sql = "SELECT * FROM usuarios WHERE email_user = :email";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':email', $email);
-$stmt->execute();
 
-if ($stmt->rowCount() > 0) {
-    echo "<script>
+// Pega os dados do formulário
+$username = $_POST['username'];
+
+// Verifica se o usuario já está cadastrado
+$sql = "SELECT username FROM usuarios WHERE username = \"" . $username . "\";";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    die("<script>
+    window.alert('Este usuario já está cadastrado. Faça login.');
+    window.location.href='../login_tormenta/login_tormenta.html';
+    </script>");
+}
+
+
+
+$email = $_POST['email_user'];
+
+// Verifica se o e-mail já está cadastrado
+$sql = "SELECT email_user FROM usuarios WHERE email_user = \"" . $email . "\";";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    die("<script>
     window.alert('Este e-mail já está cadastrado. Faça login.');
     window.location.href='../login_tormenta/login_tormenta.html';
-    </script>";
-    exit;
+    </script>");
 }
 
-// Gera o hash da senha
-$senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+$senha_hash = password_hash($_POST['senha_user'], PASSWORD_DEFAULT);
 
 // Insere no banco
-$sql = "INSERT INTO usuarios (username, email_user, senha_hash) VALUES (:username, :email, :senha_hash)";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':username', $username);
-$stmt->bindParam(':email', $email);
-$stmt->bindParam(':senha_hash', $senha_hash);
+$sql = "INSERT INTO usuarios (username, email_user, senha_hash) VALUES (\"" . $username . "\", \"" . $email . "\", \"" . $senha_hash . "\")";
+$result = mysqli_query($conn, $sql);
 
-if ($stmt->execute()) {
-    //  Você redireciona para o login
-    echo "<script>
-    window.alert('Cadastro realizado com sucesso!');
-    window.location.href='../login_tormenta/login_tormenta.html';
-    </script>";
-    exit;
-} else {
-    echo "<script>
+if (mysqli_error($conn))
+    // redireciona para o login
+    die("<script>
     window.alert('Erro ao cadastrar. Tente novamente.');
     window.location.href='../cadastro_tormenta/cadastro_tormenta.html';
+    </script>");
+
+
+
+echo "<script>
+    window.alert('Cadastro realizado com sucesso!');
     </script>";
-    exit;
-}
+sleep(1);
+header('Location: ../login_tormenta/login_tormenta.html');
 ?>
