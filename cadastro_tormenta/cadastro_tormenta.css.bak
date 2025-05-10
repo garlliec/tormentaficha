@@ -76,7 +76,7 @@ label {
 }
 
 .logo {
-    padding: 4% 0% 2% 10%;
+    padding: 6vh 0vw 3vh 10vw;
 }
 
 .container {
@@ -169,7 +169,7 @@ button.reset:hover {
 
 
 form > input {
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 }
 
 a {

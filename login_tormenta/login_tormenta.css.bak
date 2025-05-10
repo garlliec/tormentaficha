@@ -63,9 +63,9 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     width: 100%;
-   flex: 1;
+    flex: 1;
 }
 
 form {
@@ -84,7 +84,7 @@ label {
 }
 
 .logo {
-    padding: 4% 0% 2% 10%;
+    padding: 6vh 0vw 3vh 10vw;
 }
 
 .container {

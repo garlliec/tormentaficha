@@ -30,7 +30,7 @@
 
         <main>
             <div class="container">
-                <h1> a </h1>
+                <h1> Login </h1>
                 <form id="loginform" method="post" action="../tormentaphps/login_tormenta.php">
                     <label for="email_user">Email</label>
                     <input required type="email" name="email_user" id="email_user" placeholder="Digite seu email">
@@ -43,7 +43,7 @@
                     <button type="submit" class="submit"> Entrar </button>
                     <button type="reset" class="reset"> limpar </button>
 
-<!--                     <a href="../cadastro_tormenta/cadastro_tormenta.html" id="irparacadastro"> Não é um aventureiro ainda? Cadastre-se</a> -->
+                    <a href="../cadastro_tormenta/cadastro_tormenta.html" id="irparacadastro"> Não é um aventureiro ainda? Cadastre-se</a>
                 </form>
                 </div>
         </main>
