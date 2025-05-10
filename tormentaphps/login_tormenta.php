@@ -39,7 +39,7 @@ if ($user) {
         setcookie('id_user', $user['id_user'], time()+60*60*24);
         echo "<script>
         window.alert('Login realizado com sucesso! Bem-vindo, " . htmlspecialchars($user['username']) . "');
-        window.location.href='../aventureiros_tormenta';
+        window.location.href='../aventureiros_tormenta/aventureiros_tormenta.html';
         </script>";
         exit;
     } else {
