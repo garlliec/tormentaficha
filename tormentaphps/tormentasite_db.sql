@@ -29,13 +29,26 @@ SET time_zone = "-03:00";
 
 CREATE DATABASE `tormentasite_db`;
 USE `tormentasite_db`;
-CREATE TABLE `usuarios` (
+CREATE TABLE `Usuarios` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `email_user` varchar(255) NOT NULL,
   `senha_hash` varchar(64) NOT NULL,
   PRIMARY KEY (id_user)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `Personagem` (
+  `id_user` int NOT NULL,
+  FOREIGN KEY (id_user) REFERENCES Usuarios(id_user)
+
+  `id_personagem` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `sobrenome` varchar(255) NOT NULL,
+  `classe` varchar(255) NOT NULL,
+  `foto` varchar(128) NOT NULL,
+  PRIMARY KEY (id_personagem)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 --
 -- Indexes for dumped tables
