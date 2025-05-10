@@ -14,7 +14,7 @@
     <!-- Fonte Lora do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" 
           rel="stylesheet">
-    <link rel="stylesheet" href="/cadastro_tormenta/cadastro_tormenta.css">
+    <link rel="stylesheet" href="cadastro_tormenta.css">
     
   
 </head>
@@ -23,7 +23,7 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <!-- Corrigido: aqui vai uma imagem, não um .ttf -->
-                <img src="/cadastro_tormenta/itens/logotormenta.png" alt="Tormenta Logo" width="150" height="auto">
+                <img src="itens/logotormenta.png" alt="Tormenta Logo" width="150" height="auto">
             </a>
         </div>
     </nav>
@@ -31,21 +31,20 @@
     <main>
         <div id="container">
             <h2>Cadastro </h2>
-            <form id="cadastroform"  method="POST" action="/tormentaphps/cadastro_tormenta.php"> 
+            <form id="cadastroform"  method="POST" action="../tormentaphps/cadastro_tormenta.php"> 
                 <label>Apelido</label>
-                <input type="text" name="username" id="username" placeholder="Digite seu apelido.">
+                <input required type="text" name="username" id="username" placeholder="Digite seu apelido.">
                 <label>Email</label>
-                <input type="email" name="email_user" id="email_user" placeholder="Digite seu email"> 
+                <input required type="email" name="email_user" id="email_user" placeholder="Digite seu email"> 
                 <!-- Placeholder é pra colocar letrinha dentro dos input-->
                 <label id="labelsenha">Senha</label>
-                <input type="password" name="senha_user" id="senha_user" placeholder="Digite sua senha"> 
+                <input required type="password" name="senha_user" id="senha_user" placeholder="Digite sua senha"> 
                 <div id="alertforuser"></div>
                 <button type="submit">Cadastrar-se</button>
-                <a href="/login_tormenta/login_tormenta.html" id="irparalogin"> Já é um aventureiro? Vá para o login.</a>
+                <a href="../login_tormenta/login_tormenta.html" id="irparalogin"> Já é um aventureiro? Vá para o login.</a>
             </form>
             </div>
     </main>
-    <script src="/cadastro_tormenta/cadastro_tormenta.js"></script>
 
 </body>
 </html>
