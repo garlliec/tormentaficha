@@ -50,6 +50,7 @@ CREATE TABLE `Personagens` (
   `sobrenome` varchar(255) NOT NULL,
   `classe` varchar(255) NOT NULL,
   -- abilidades do personagem
+  `tags` VARCHAR DEFAULT "[]",
   `foto` varchar(128) NOT NULL, -- arquivo de imagem no servidor
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

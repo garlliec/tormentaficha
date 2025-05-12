@@ -1,13 +1,13 @@
-*{
+* {
     padding: 0;
     margin: 0;
     font-family: "Lora", serif;
-    color: #F2CAB0;
+    color: #f2cab0;
 }
 
 @font-face {
-    font-family: 'Tormenta';
-    src: url('/itens/fontes/Tormenta.ttf') format('truetype');
+    font-family: "Tormenta";
+    src: url("/itens/fontes/Tormenta.ttf") format("truetype");
 }
 
 .lora-texto {
@@ -15,33 +15,33 @@
     font-optical-sizing: auto;
     font-weight: 400px;
     font-style: normal;
-  }
+}
 
-h2{
-    font-family: "Tormenta"; 
+h2 {
+    font-family: "Tormenta";
     color: red;
 }
 
-p{
+p {
     font-family: "Lora", serif;
 }
 
 .navbar {
-    background-color: #0D0D0D; 
+    background-color: #0d0d0d;
     margin: 0;
-     box-shadow: 0 0 20px rgba(246, 26, 26, 0.2);
+    box-shadow: 0 0 20px rgba(246, 26, 26, 0.2);
 }
 
-hr{
-    background-color: #F61A1A;
+hr {
+    background-color: #f61a1a;
 }
 
-.linhanav{
+.linhanav {
     height: 3px;
 }
 
-
-html, body{
+html,
+body {
     display: flex;
     flex-direction: column;
     background-color: #121212;
@@ -49,65 +49,61 @@ html, body{
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-
+    /* overflow: hidden; */
 }
 
 main {
-  
-     display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: center;  /* alinha horizontalmente ao centro */
+    align-items: center;
+    /* alinha horizontalmente ao centro */
     position: relative;
-    padding-top: 20px;  /* se quiser um respiro do topo */
+    padding-top: 20px;
+    /* se quiser um respiro do topo */
     width: 100%;
     flex: 1;
 }
 
-.linknavbar{
+.linknavbar {
     font-family: "Tormenta";
-    color: #F61A1A;
+    color: #f61a1a;
     font-size: 30px;
 }
 
-.linknavbar:hover{
+.linknavbar:hover {
     transform: scale(1.06);
     transition: 100ms;
     text-decoration: none;
-    color: #F61A1A;
+    color: #f61a1a;
 }
 
-.atuallink{
-    text-decoration:underline;
-    
+.atuallink {
+    text-decoration: underline;
 }
 
-
-button{
+button {
     box-sizing: border-box;
-    padding: 10px;
-     margin-left: 30px;
-    margin-right: 30px;
-    background-color: #F61A1A;
-    margin-top: 20px;
+    /* margin: 20px 10px 30px 0; */
+    background-color: #f61a1a;
     border: 0;
     border-radius: 10px;
     font-family: "Tormenta";
-    font-size: 40px;
-     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
+
 button:hover {
     transform: scale(1.02);
     transition: 190ms;
     box-shadow: 0 0 20px rgba(246, 26, 26, 0.3);
 }
 
-.novoperbutton{
-    height: 115px;
-    width: 310px;
+.novo_per_button {
+    /* height: 115px; */
+    /* width: 310px; */
 }
 
-.aventureiroblock{
+.aventureiro_block {
     display: flex;
     flex-direction: row;
     margin-top: 20px;
@@ -120,19 +116,44 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
-.aventureiroblock:hover{
-    transform: scale(1.02);
-    transition: 190ms;
-    box-shadow: 0 0 20px rgba(246, 26, 26, 0.3)
-}
-.imgper{
-    box-sizing: border-box;
-    height: 120px;
-    width: 120px;
-    background-color: #0D0D0D;
+
+.aventureiro_table {
+    padding: 10px 30px 10px 30px;
+    background-color: #3dff8e;
+    border: #f61a1a solid 10px;
     border-radius: 10px;
 }
-.infoper{
+
+.aventureiro_table tr {
+    margin: 10px 30px 10px 30px;
+    background-color: yellow;
+    border: blue solid 6px;
+    border-radius: 10px;
+}
+
+.aventureiro_block:hover {
+    transform: scale(1.02);
+    transition: 190ms;
+    box-shadow: 0 0 20px rgba(246, 26, 26, 0.3);
+}
+
+.img_per {
+    /* box-sizing: border-box; */
+    /* height: 120px; */
+    /* width: 120px; */
+    /* background-color: #0d0d0d; */
+    /* border-radius: 10px; */
+}
+
+.img_per > img {
+    /* box-sizing: border-box; */
+    height: 120px;
+    width: 120px;
+    background-color: #0d0d0d;
+    border-radius: 10px;
+}
+
+.info_per {
     box-sizing: border-box;
     height: 120px;
     width: 230px;
@@ -140,16 +161,15 @@ button:hover {
     padding: 10px;
 }
 
-.nomeper{
+.nome_per {
     font-family: "Tormenta";
-    color: #F61A1A;
+    color: #f61a1a;
     font-size: 23px;
     margin-bottom: 5px;
-    
 }
 
-header{
-    color: #F61A1A;
+header {
+    color: #f61a1a;
     font-family: "Tormenta";
     margin-left: 30px;
 }
