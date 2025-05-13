@@ -21,49 +21,176 @@ SET time_zone = "-03:00";
 -- Database: `tormentasite_db`
 --
 
--- --------------------------------------------------------
-
---
--- Table structure for table `usuarios`
---
-
+DROP DATABASE `tormentasite_db`;
 CREATE DATABASE `tormentasite_db`;
 USE `tormentasite_db`;
 CREATE TABLE `Usuarios` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (id_user),
+
   `username` varchar(255) NOT NULL,
   `email_user` varchar(255) NOT NULL,
-  `senha_hash` varchar(64) NOT NULL,
-  PRIMARY KEY (id_user)
+  `senha_hash` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+
+CREATE TABLE `Inventario` (
+  `id_inventario` INT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (id_inventario),
+
+  `peso_maximo` FLOAT NOT NULL DEFAULT '0.0',
+  `volume_maximo` FLOAT NOT NULL DEFAULT '0.0',
+  `nome_item` VARCHAR(60) NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `Item_armadura` (
+  `id_item` INT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (id_item),
+
+  `id_inventario` INT NOT NULL,
+  FOREIGN KEY (id_inventario) REFERENCES Inventario(id_inventario),
+
+  `peso` FLOAT NOT NULL DEFAULT '0.0', -- mudar
+  `volume` FLOAT NOT NULL DEFAULT '0.0', -- mudar
+  `nome_item` VARCHAR(60) NOT NULL,
+  `desc` VARCHAR(2048) DEFAULT "eu acho isso no lixo :D",
+  -- ^^^ mudar
+
+  `defesa` FLOAT NOT NULL DEFAULT '0.0'
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `Item_arma` (
+  `id_item` INT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (id_item),
+
+  `id_inventario` INT NOT NULL,
+  FOREIGN KEY (id_inventario) REFERENCES Inventario(id_inventario),
+
+  `peso` FLOAT NOT NULL DEFAULT '0.0', -- mudar
+  `volume` FLOAT NOT NULL DEFAULT '0.0', -- mudar
+  `nome_item` VARCHAR(60) NOT NULL,
+  `desc` VARCHAR(2048) DEFAULT "eu acho isso no lixo :D",
+  -- ^^^ mudar
+
+  `dano` FLOAT NOT NULL DEFAULT '0.0' -- mudar
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `Item_outros` (
+  `id_item` INT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (id_item),
+
+  `id_inventario` INT NOT NULL,
+  FOREIGN KEY (id_inventario) REFERENCES Inventario(id_inventario),
+
+  `peso` FLOAT NOT NULL DEFAULT '0.0', -- mudar
+  `volume` FLOAT NOT NULL DEFAULT '0.0', -- mudar
+  `nome_item` VARCHAR(60) NOT NULL,
+  `desc` VARCHAR(2048) DEFAULT "eu acho isso no lixo :D",
+  -- ^^^ mudar
+
+  `tipo` VARCHAR(64) DEFAULT "Outros"
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+
+
+
+CREATE TABLE `Racas` (
+  `id_raca` INT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (id_raca),
+
+  `nome_raca` VARCHAR(64) NOT NULL,
+  `modificador_raca` INT,
+  `habilidades_raca` VARCHAR(2048) DEFAULT "nois veio do mar :O!!"
+  -- ^^^ mudar
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+CREATE TABLE `Origens` (
+  `id_origens` INT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (id_origens),
+
+  `nome_origem` VARCHAR(64) NOT NULL,
+  `itens_origem` VARCHAR(64) NOT NULL,
+  `beneficios_origem` VARCHAR(64) NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+CREATE TABLE `Atributos` (
+  `id_atributo` INT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (id_atributo),
+
+  `forca` INT NOT NULL,
+  `des` INT NOT NULL, -- mudar
+  `con` INT NOT NULL, -- mudar
+  `inteligencia` INT NOT NULL,
+  `sab` INT NOT NULL, -- mudar
+  `carisma` INT NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+CREATE TABLE `Pericias` (
+  `id_pericias` INT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (id_pericias),
+
+  `acrobacia` SMALLINT NOT NULL DEFAULT "0",
+  `adestramento` SMALLINT NOT NULL DEFAULT "0",
+  `atletismo` SMALLINT NOT NULL DEFAULT "0"
+
+  -- etc
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
 
 
 CREATE TABLE `Personagens` (
-  `id_personagem` int(11) NOT NULL AUTO_INCREMENT,
+  `id_personagem` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id_personagem),
 
-  `id_user` int NOT NULL,
+  `id_user` INT NOT NULL,
   FOREIGN KEY (id_user) REFERENCES Usuarios(id_user),
 
+  `id_inventario` INT,
+  FOREIGN KEY (id_inventario) REFERENCES Usuarios(id_user),
 
-  `nome` varchar(255) NOT NULL,
-  `sobrenome` varchar(255) NOT NULL,
-  `classe` varchar(255) NOT NULL,
+  `id_raca` INT,
+  FOREIGN KEY (id_raca) REFERENCES Racas(id_raca),
+
+  `id_atributo` INT,
+  FOREIGN KEY (id_atributo) REFERENCES Atributos(id_atributo),
+
+  `id_pericias` INT,
+  FOREIGN KEY (id_pericias) REFERENCES Pericias(id_pericias),
+
+
+  `nome` VARCHAR(64) NOT NULL,
+  -- `id_raca` varchar(255) NOT NULL,
+
+  `classe` VARCHAR(64) NOT NULL,
+  `id_origens` INT,
+  FOREIGN KEY (id_origens) REFERENCES Origens(id_origens),
+
+  `nivel` INT NOT NULL,
+  `divindade` VARCHAR(64) NOT NULL,
   -- abilidades do personagem
-  `tags` VARCHAR DEFAULT "[]",
-  `foto` varchar(128) NOT NULL, -- arquivo de imagem no servidor
+  -- `tags` VARCHAR DEFAULT "[]",
+  `foto` VARCHAR(128) NOT NULL -- arquivo de imagem no servidor
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- tabela abilidades
-
---
--- AUTO_INCREMENT for table `usuarios`
---
--- ALTER TABLE `usuarios`
-  -- MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
--- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
