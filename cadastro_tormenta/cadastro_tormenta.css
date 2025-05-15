@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: "Lora", serif;
+    font-family: "Iowan", serif;
     color: #F2CAB0;
 }
 
@@ -9,7 +9,10 @@
     font-family: 'Tormenta';
     src: url('/itens/fontes/Tormenta.ttf') format('truetype');
 }
-
+@font-face {
+    font-family: 'Iowan';
+    src: url('/itens/fontes/iowanoldstyle_bold.otf') format("truetype");
+}
 .lora-texto {
     font-family: "Lora", serif;
     font-optical-sizing: auto;
@@ -24,7 +27,7 @@ h1 {
 }
 
 p {
-    font-family: "Lora", serif;
+    font-family: "Iowan", serif;
 }
 
 .navbar {

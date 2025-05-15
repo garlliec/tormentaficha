@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo aventureiro</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+          crossorigin="anonymous">
+    <!-- Fonte Lora do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" 
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/aventureiros_tormenta/fazendo_ficha/novo-aventureiro.css">
+</head>
+<body>
+     <nav class="navbar bg-body-tertiary mb-0 p-0">
+        <div class="container">
+            <a class="navbar-brand linknavbar" href="#">
+                <!-- Corrigido: aqui vai uma imagem, não um .ttf -->
+                <img src="/itens/imagens/logotormenta.png" alt="Tormenta Logo" width="150" height="auto">
+            </a>
+            <a class="linknavbar atuallink" href="aventureiros_tormenta.html">Aventureiros </a>
+            <a class="linknavbar" href="../ameaças_tormenta/ameacas_tormenta.html">Ameaças </a>
+            <a class="linknavbar" href="#">Perfil </a>
+
+
+        </div>
+    </nav>
+     <hr class="linhanav mt-0"> 
+    
+    <div class="container">
+        <div class="creation-steps">
+            <div class="step active">Atributos</div>
+            <div class="step">Origem</div>
+            <div class="step">Classe</div>
+            <div class="step">Toques Finais</div>
+        </div>
+
+        <div class="attributes-container">
+            <div class="attribute-circle center">ATRIBUTOS</div>
+            
+            <div class="attribute-circle agi">
+                <span class="attr-name">AGILIDADE</span>
+                <span class="attr-value">1</span>
+                <span class="attr-abbrev">AGI</span>
+            </div>
+            
+            <div class="attribute-circle for">
+                <span class="attr-name">FORÇA</span>
+                <span class="attr-value">1</span>
+                <span class="attr-abbrev">FOR</span>
+            </div>
+            
+            <div class="attribute-circle int">
+                <span class="attr-name">INTELECTO</span>
+                <span class="attr-value">1</span>
+                <span class="attr-abbrev">INT</span>
+            </div>
+            
+            <div class="attribute-circle pre">
+                <span class="attr-name">PRESENÇA</span>
+                <span class="attr-value">1</span>
+                <span class="attr-abbrev">PRE</span>
+            </div>
+            
+            <div class="attribute-circle vig">
+                <span class="attr-name">VIGOR</span>
+                <span class="attr-value">1</span>
+                <span class="attr-abbrev">VIG</span>
+            </div>
+        </div>
+
+        <div class="attributes-info">
+            <p>Quando você cria um personagem, todos os seus atributos começam em 1 e você recebe 4 pontos para distribuir entre eles como quiser. Você também pode reduzir um atributo para 0 para receber 1 ponto adicional. O valor máximo inicial que você pode ter em cada atributo é 3.</p>
+            <div class="points-remaining">
+                Pontos Restantes: <span id="remaining-points">4</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="novo-aventureiro.js"></script>
+</body>
+</html>
