@@ -1,6 +1,6 @@
 <?php
 if (!function_exists("conexao")) {
-	function conexao() {
+	function conexao(...$args) {
 		$host = '192.168.122.175';
 		$user = 'user';
 		$pass = 'qwe';

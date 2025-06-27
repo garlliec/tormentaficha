@@ -24,6 +24,7 @@ SET time_zone = "-03:00";
 DROP DATABASE `tormentasite_db`;
 CREATE DATABASE `tormentasite_db`;
 USE `tormentasite_db`;
+
 CREATE TABLE `Usuarios` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id_user),

@@ -32,8 +32,6 @@ if (mysqli_num_rows($result) > 0) {
     </script>");
 }
 
-
-
 $email = $_POST['email_user'];
 
 // Verifica se o e-mail já está cadastrado
