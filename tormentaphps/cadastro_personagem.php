@@ -45,7 +45,9 @@ if (mysqli_num_rows($result) > 0) {
     window.alert('Este e-mail já está cadastrado. Faça login.');
     window.location.href='../login_tormenta/login_tormenta.html';
     </script>");
-}
+    // erhm, vc divia fase um sistema de redirecionamento
+    // isso aq eh perigoso e meio feio e meio que um raque ners naos?
+};
 
 
 $senha_hash = password_hash($_POST['senha_user'], PASSWORD_DEFAULT);

@@ -1,4 +1,9 @@
 <?php
+
+// ARQUIVO DEPRECADO
+//
+// MARCADO PARA SER DELETADO
+
 $host = 'localhost';
 $dbname = 'tormentasite_db';
 $user = 'root';

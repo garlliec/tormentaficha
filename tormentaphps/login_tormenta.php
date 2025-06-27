@@ -17,7 +17,7 @@ if (!isset($_POST['email_user']) || !isset($_POST['senha_user'])) {
     exit;
 }
 
-echo "a";
+// echo "a";
 $senha = $_POST['senha_user'];
 
 // Pega os dados do formulário
@@ -42,7 +42,7 @@ $deference = mysqli_fetch_array($result);
 
 // $a = var_dump(password_verify($senha, $deference['senha_hash']));
 
-    // window.location.href='../login_tormenta/login_tormenta.html';
+
 if (!password_verify($senha, $deference['senha_hash'])) {
     echo "<script>
     window.alert('Senha incorreta.');
