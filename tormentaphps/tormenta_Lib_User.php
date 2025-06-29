@@ -92,7 +92,7 @@ function User_owns_Email($conn, int $id_user, string $email): bool {
 ///////////////////////////// Derefence Users /////////////////////////////
 
 
-function Drf_Email_to_User($conn, string $email): int {
+function Drf_Email_to_User($conn, string $email): string {
 	$sql = "SELECT id_user, email_user FROM `Usuarios`
 		WHERE email_user = '" . $email . "';";
 	$email_result = mysqli_query($conn, $sql);
@@ -106,6 +106,7 @@ function Drf_Email_to_User($conn, string $email): int {
 };
 
 
+
 function Drf_Username_to_User($conn, string $email): string {
 	$sql = "SELECT id_user, username FROM `Usuarios`
 		WHERE username = '" . $username . "';";
@@ -117,6 +118,34 @@ function Drf_Username_to_User($conn, string $email): string {
 	$row = mysqli_fetch_assoc($result);
 
 	return $row["id_user"];
+};
+
+
+function Drf_User_to_Email($conn, int $id_user): string{
+	$sql = "SELECT email_user FROM `Usuarios`
+		WHERE id_user = '" . $id_user. "';";
+	$username_result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($username_result) == 0)
+		return 0;
+
+	$row = mysqli_fetch_assoc($username_result);
+
+	return $row["email_user"];
+};
+
+
+function Drf_Username_to_Email($conn, string $username): string{
+	$sql = "SELECT id_user, email_user FROM `Usuarios`
+		WHERE email_user = '" . $username . "';";
+	$username_result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($username_result) == 0)
+		return 0;
+
+	$row = mysqli_fetch_assoc($username_result);
+
+	return $row["email_user"];
 };
 
 

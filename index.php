@@ -1,6 +1,9 @@
 <?php
 // index.php
 
+// arquivo nao necessario, recomendo remover antes de
+// empurar esse codigo para o servidor principal
+
 function listDirectory($dir = '.') {
     $items = scandir($dir);
     $items = array_diff($items, ['.', '..']);
@@ -24,6 +27,7 @@ function listDirectory($dir = '.') {
     echo "</ul>";
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

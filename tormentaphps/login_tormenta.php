@@ -9,7 +9,7 @@ include("tormenta_Lib_User.php");
 $conn = conexao();
 
 // Validações básicas
-if (!isset($_POST['email_user']) || !isset($_POST['senha_user']) || !isset($_POST['username'])) {
+if (!isset($_POST['email_user']) || !isset($_POST['senha_user'])) {
     echo "<script>
         window.alert('Por favor preencha todos os campos');
         window.location.href='../cadastro_tormenta/cadastro_tormenta.html';
@@ -18,18 +18,19 @@ if (!isset($_POST['email_user']) || !isset($_POST['senha_user']) || !isset($_POS
 };
 
 
+// $username = $_POST['username'];
 $username = $_POST['username'];
 $email_user = $_POST['email_user'];
 $senha = $_POST['senha_user'];
-
-if (! UsernameExists($conn, $username)) {
-    die("<script>
-        window.alert('Usuário não encontrado. Faça Cadastro.');
-        window.location.href='../login_tormenta/login_tormenta.html';
-    </script>");
-};
-
 $id_user = Drf_Email_to_User($conn, $email_user);
+
+// if (! UsernameExists($conn, $username)) {
+//     die("<script>
+//         window.alert('Usuário não encontrado. Faça Cadastro.');
+//         window.location.href='../login_tormenta/login_tormenta.html';
+//     </script>");
+// };
+
 
 
 // if ($id_user == 0) { // TODO: handle error correcly
@@ -65,7 +66,8 @@ if (! ValidateUserPassword($conn, $id_user, $senha)) {
     // exit;
 };
 
-$bundle = base64_encode($deference['username'] . "+" . $deference['email_user'] . "+" . $deference['senha_hash']); // TODO: replace with session token
+$bundle = base64_encode($username . "+" . $deference['email_user'] . "+" . $deference['senha_hash']); // TODO: replace with session token
+// $bundle = base64_encode($deference['username'] . "+" . $deference['email_user'] . "+" . $deference['senha_hash']); // TODO: replace with session token
 
 setcookie('bundle', $bundle, time() + 60 * 60 * 24 * 5); // 5 dias
 
