@@ -48,19 +48,75 @@ function ValidateUserPassword($conn, int $id_user, string $password): bool {
 		. $id_user . "';";
 	$user_result = mysqli_query($conn, $sql);
 
-	if (mysqli_num_rows($email_result) == 0)
+	if (mysqli_num_rows($user_result) == 0)
 		return false;
 
+	$row = mysqli_fetch_assoc($user_result);
 
-	if (password_verify($password, $user_result["senha_hash"]))
+	if (password_verify($password, $row["senha_hash"]))
 		// echo "{\"result\": ':D'}";
 		return true;
 	else
 		// echo "{\"result\": '>:('}";
-		return true;
+		return false;
 
 
 	return false;
+};
+
+
+function User_owns_Email($conn, int $id_user, string $email): bool {
+	$sql = "SELECT id_user, email_user FROM `Usuarios` WHERE id_user = '"
+		. $id_user . "';";
+	$result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($result) == 0)
+		// die("aaaaaaaaaaa");
+		return false;
+
+	$row = mysqli_fetch_assoc($result);
+
+	if ($row["email_user"] == $email)
+			return true;
+	else
+		return false;
+
+
+	return false;
+};
+
+
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+///////////////////////////// Derefence Users /////////////////////////////
+
+
+function Drf_Email_to_User($conn, string $email): int {
+	$sql = "SELECT id_user, email_user FROM `Usuarios`
+		WHERE email_user = '" . $email . "';";
+	$email_result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($email_result) == 0)
+		return 0;
+
+	$row = mysqli_fetch_assoc($email_result);
+
+	return $row["id_user"];
+};
+
+
+function Drf_Username_to_User($conn, string $email): string {
+	$sql = "SELECT id_user, username FROM `Usuarios`
+		WHERE username = '" . $username . "';";
+	$result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($email_result) == 0)
+		return NULL;
+
+	$row = mysqli_fetch_assoc($result);
+
+	return $row["id_user"];
 };
 
 

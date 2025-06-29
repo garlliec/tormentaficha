@@ -29,7 +29,7 @@ CREATE TABLE `Usuarios` (
   `id_user` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id_user),
 
-  `username` VARCHAR(255) NOT NULL,
+  `username` VARCHAR(128) NOT NULL,
   `email_user` VARCHAR(255) NOT NULL,
   `senha_hash` VARCHAR(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
