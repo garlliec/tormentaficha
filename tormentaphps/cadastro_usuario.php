@@ -19,9 +19,10 @@ if ((!isset($_POST['username'])) || (!isset($_POST['email_user'])) || (!isset($_
     exit;
 }
 
-
-// Pega os dados do formulário
 $username = $_POST['username'];
+$email = $_POST['email_user'];
+$password = $_POST['senha_user'];
+
 
 if (UsernameExists($conn, $username)) {
     die("<script>
@@ -30,26 +31,17 @@ if (UsernameExists($conn, $username)) {
     </script>");
 };
 
-
-$email = $_POST['email_user'];
-
-
 if (EmailExists($conn, $email)) {
     die("<script>
         window.alert('Este e-mail já está cadastrado. Faça login.');
         window.location.href='../login_tormenta/login_tormenta.html';
     </script>");
-    // erhm, vc divia fase um sistema de redirecionamento
-    // isso aq eh perigoso e meio feio e meio que um raque ners naos?
 };
-
-
-$password = $_POST['senha_user'];
 
 
 $create_result = CreateUser($conn, $username, $email, $password);
 
-if ($create_result == -1)
+if ($create_result < 0)
     // redireciona para o login
     die("<script>
         window.alert('Erro ao cadastrar. Tente novamente.');
